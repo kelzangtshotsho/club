@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ass.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <title >Club Update Details</title>
+
+
+  <style type="text/css">
+    body{
+      width: 960;
+      background-image: url(/static/images/a12.jpg);
+    }
+  .topnav{
+  background-color: #602020;
+  padding-left: 25px;
+  padding-right: 50px;
+  position: absolute;
+
+  width: 50px;
+  height: 50px;
+}
+
+.topnav a.active {
+  background-color: blue;
+  color: white;
+
+ }
+.middle{
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  background-color:rgb(92,132,150,0.84);
+  left: 10%;
+  top: 40%;
+  
+}
+.header{
+  position: absolute;
+  width: 1000px;
+  height: 117px;
+  background-color: white;
+  left: 10%;
+  padding-top: -500%;
+
+}
+.table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+.table{
+  position: relative;
+  text-align: center;
+  width:50%;
+  height: 40%;
+}
+.text{
+  text-align: center;
+
+}
+.p{
+  padding-top: 10%;
+  color: black;
+}
+
+/*tablet view*/
+@media screen and (max-width:800px){
+ .container{
+  width: 100%; 
+  height: 200%;
+ }
+  .header{
+width: 90%;
+height:125px;
+position: absolute; 
+ }
+ .topnav{
+  width: 45%;
+ }
+ .middle{
+  width: 90%;
+  height: 150%;
+ }
+}
+/*mobile view*/
+@media screen and (max-width:500px){
+  .container{
+  width: 100%; 
+  height: 200%;
+ }
+  .header{
+width: 90%;
+height:150px; 
+ }
+ .topnav{
+  width: 45%;
+ }
+ .middle{
+  width: 90%;
+  height: 100%;
+ }
+ }
+.table {
+  width: 80%;
+}
+   
+  </style>
+
+  
+</head>
+<body>
+  <div class="container">
+  <div class="header">
+   
+    <div class="gcit" align="center">
+        <img class="img2" src="{% static 'img/RUB.png' %}" align="left">
+        <img class="img1" src="{% static 'img/gcit.jpg' %}" align="right">
+      <p>GYALPOZHING COLLEGE OF INFORMATION TECHNOLOGY</p>
+      <p class="it">Club Management System</p>
+    </div>
+ <div class="topnav">
+
+  <a href="{%  url 'index'%}">Home</a>
+
+
+
+</div>
+   </div>
+   </div>
+
+<div class="middle">
+  
+  <div class="mark"><h2><marquee behavior="scroll" direction="right"; style="color: white">Details and Updates:</marquee></h2></div>
+        <center>
+          {% if stu %}
+
+          <table class="table" border="1"  cellspacing="0" cellpadding="12px">
+            <tr>
+              <th>Club</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Description</th>
+              <th>Activity</th>
+            </tr>
+
+            {% for st in stu %}
+            <tr>
+              <td style="border: 1px solid black; border-collapse: collapse;" >{{st.Name}}</td>
+              <td>{{st.Date}}</td>
+              <td>{{st.Time}}</td>
+              <td>{{st.Description}}</td>
+              <td>{{st.Activity}}</td>
+            </tr>
+            {% endfor %}
+
+          </table>
+
+            {% else %}
+
+              <h1>No data</h1>
+
+            {% endif %}
+<p align="center" class="p" >IF you have anything to discuss you can drop message from message box</p>
+</div>
+</div>
+</body>
+</html>
